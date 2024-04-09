@@ -1,0 +1,37 @@
+// Generated from D:/school/jaar 3/ASD Project/CompilerTest/untitled/src/main/java/org/example/MyGrammar.g4 by ANTLR 4.13.1
+package org.example;
+import org.antlr.v4.runtime.tree.ParseTreeVisitor;
+
+/**
+ * This interface defines a complete generic visitor for a parse tree produced
+ * by {@link MyGrammarParser}.
+ *
+ * @param <T> The return type of the visit operation. Use {@link Void} for
+ * operations with no return type.
+ */
+public interface MyGrammarVisitor<T> extends ParseTreeVisitor<T> {
+	/**
+	 * Visit a parse tree produced by {@link MyGrammarParser#program}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgram(MyGrammarParser.ProgramContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link MyGrammarParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatement(MyGrammarParser.StatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link MyGrammarParser#loopStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoopStatement(MyGrammarParser.LoopStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link MyGrammarParser#direction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDirection(MyGrammarParser.DirectionContext ctx);
+}
