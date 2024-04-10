@@ -1,14 +1,16 @@
 grammar MyGrammar;
 
-program: statement+;
+INT: [0-9]+;
+WS: [ \t\r\n]+ -> skip;
+
+program: statement;
 
 statement: loopStatement;
-
-loopStatement: 'loop' INT 'keer' 'naar' direction;
-
+loopStatement: meerdereLoopStatement
+                | enkelLoopStatement;
+meerdereLoopStatement: 'loop' INT 'keer' 'naar' direction;
+enkelLoopStatement: 'loop' 'naar' direction;
 direction: 'boven' | 'onder' | 'links' | 'rechts';
 
 
 
-INT: [0-9]+;
-WS: [ \t\r\n]+ -> skip;

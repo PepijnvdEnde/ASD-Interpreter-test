@@ -1,5 +1,6 @@
 // Generated from D:/school/jaar 3/ASD Project/CompilerTest/untitled/src/main/java/org/example/MyGrammar.g4 by ANTLR 4.13.1
 package org.example.Listner;
+
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

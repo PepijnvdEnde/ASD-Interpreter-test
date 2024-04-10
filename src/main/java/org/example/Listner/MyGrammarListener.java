@@ -1,5 +1,6 @@
 // Generated from D:/school/jaar 3/ASD Project/CompilerTest/untitled/src/main/java/org/example/MyGrammar.g4 by ANTLR 4.13.1
 package org.example.Listner;
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -37,6 +38,26 @@ public interface MyGrammarListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLoopStatement(MyGrammarParser.LoopStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MyGrammarParser#meerdereLoopStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterMeerdereLoopStatement(MyGrammarParser.MeerdereLoopStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MyGrammarParser#meerdereLoopStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitMeerdereLoopStatement(MyGrammarParser.MeerdereLoopStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MyGrammarParser#enkelLoopStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnkelLoopStatement(MyGrammarParser.EnkelLoopStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MyGrammarParser#enkelLoopStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnkelLoopStatement(MyGrammarParser.EnkelLoopStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MyGrammarParser#direction}.
 	 * @param ctx the parse tree

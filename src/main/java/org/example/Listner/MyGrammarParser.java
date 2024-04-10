@@ -1,5 +1,6 @@
 // Generated from D:/school/jaar 3/ASD Project/CompilerTest/untitled/src/main/java/org/example/MyGrammar.g4 by ANTLR 4.13.1
 package org.example.Listner;
+
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -19,10 +20,12 @@ public class MyGrammarParser extends Parser {
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, INT=8, WS=9;
 	public static final int
-		RULE_program = 0, RULE_statement = 1, RULE_loopStatement = 2, RULE_direction = 3;
+		RULE_program = 0, RULE_statement = 1, RULE_loopStatement = 2, RULE_meerdereLoopStatement = 3, 
+		RULE_enkelLoopStatement = 4, RULE_direction = 5;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"program", "statement", "loopStatement", "direction"
+			"program", "statement", "loopStatement", "meerdereLoopStatement", "enkelLoopStatement", 
+			"direction"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -124,17 +127,17 @@ public class MyGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(9); 
+			setState(13); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(8);
+				setState(12);
 				statement();
 				}
 				}
-				setState(11); 
+				setState(15); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__0 );
@@ -181,7 +184,7 @@ public class MyGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(13);
+			setState(17);
 			loopStatement();
 			}
 		}
@@ -198,9 +201,11 @@ public class MyGrammarParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class LoopStatementContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(MyGrammarParser.INT, 0); }
-		public DirectionContext direction() {
-			return getRuleContext(DirectionContext.class,0);
+		public MeerdereLoopStatementContext meerdereLoopStatement() {
+			return getRuleContext(MeerdereLoopStatementContext.class,0);
+		}
+		public EnkelLoopStatementContext enkelLoopStatement() {
+			return getRuleContext(EnkelLoopStatementContext.class,0);
 		}
 		public LoopStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -225,17 +230,125 @@ public class MyGrammarParser extends Parser {
 		LoopStatementContext _localctx = new LoopStatementContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_loopStatement);
 		try {
+			setState(21);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(19);
+				meerdereLoopStatement();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(20);
+				enkelLoopStatement();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class MeerdereLoopStatementContext extends ParserRuleContext {
+		public TerminalNode INT() { return getToken(MyGrammarParser.INT, 0); }
+		public DirectionContext direction() {
+			return getRuleContext(DirectionContext.class,0);
+		}
+		public MeerdereLoopStatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_meerdereLoopStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyGrammarListener ) ((MyGrammarListener)listener).enterMeerdereLoopStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyGrammarListener ) ((MyGrammarListener)listener).exitMeerdereLoopStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyGrammarVisitor ) return ((MyGrammarVisitor<? extends T>)visitor).visitMeerdereLoopStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final MeerdereLoopStatementContext meerdereLoopStatement() throws RecognitionException {
+		MeerdereLoopStatementContext _localctx = new MeerdereLoopStatementContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_meerdereLoopStatement);
+		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(15);
+			setState(23);
 			match(T__0);
-			setState(16);
+			setState(24);
 			match(INT);
-			setState(17);
+			setState(25);
 			match(T__1);
-			setState(18);
+			setState(26);
 			match(T__2);
-			setState(19);
+			setState(27);
+			direction();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class EnkelLoopStatementContext extends ParserRuleContext {
+		public DirectionContext direction() {
+			return getRuleContext(DirectionContext.class,0);
+		}
+		public EnkelLoopStatementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_enkelLoopStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MyGrammarListener ) ((MyGrammarListener)listener).enterEnkelLoopStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MyGrammarListener ) ((MyGrammarListener)listener).exitEnkelLoopStatement(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MyGrammarVisitor ) return ((MyGrammarVisitor<? extends T>)visitor).visitEnkelLoopStatement(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final EnkelLoopStatementContext enkelLoopStatement() throws RecognitionException {
+		EnkelLoopStatementContext _localctx = new EnkelLoopStatementContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_enkelLoopStatement);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(29);
+			match(T__0);
+			setState(30);
+			match(T__2);
+			setState(31);
 			direction();
 			}
 		}
@@ -273,12 +386,12 @@ public class MyGrammarParser extends Parser {
 
 	public final DirectionContext direction() throws RecognitionException {
 		DirectionContext _localctx = new DirectionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_direction);
+		enterRule(_localctx, 10, RULE_direction);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(21);
+			setState(33);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 240L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -302,21 +415,29 @@ public class MyGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001\t\u0018\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
-		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0001\u0000\u0004\u0000\n\b"+
-		"\u0000\u000b\u0000\f\u0000\u000b\u0001\u0001\u0001\u0001\u0001\u0002\u0001"+
-		"\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0002\u0001\u0003\u0001"+
-		"\u0003\u0001\u0003\u0000\u0000\u0004\u0000\u0002\u0004\u0006\u0000\u0001"+
-		"\u0001\u0000\u0004\u0007\u0014\u0000\t\u0001\u0000\u0000\u0000\u0002\r"+
-		"\u0001\u0000\u0000\u0000\u0004\u000f\u0001\u0000\u0000\u0000\u0006\u0015"+
-		"\u0001\u0000\u0000\u0000\b\n\u0003\u0002\u0001\u0000\t\b\u0001\u0000\u0000"+
-		"\u0000\n\u000b\u0001\u0000\u0000\u0000\u000b\t\u0001\u0000\u0000\u0000"+
-		"\u000b\f\u0001\u0000\u0000\u0000\f\u0001\u0001\u0000\u0000\u0000\r\u000e"+
-		"\u0003\u0004\u0002\u0000\u000e\u0003\u0001\u0000\u0000\u0000\u000f\u0010"+
-		"\u0005\u0001\u0000\u0000\u0010\u0011\u0005\b\u0000\u0000\u0011\u0012\u0005"+
-		"\u0002\u0000\u0000\u0012\u0013\u0005\u0003\u0000\u0000\u0013\u0014\u0003"+
-		"\u0006\u0003\u0000\u0014\u0005\u0001\u0000\u0000\u0000\u0015\u0016\u0007"+
-		"\u0000\u0000\u0000\u0016\u0007\u0001\u0000\u0000\u0000\u0001\u000b";
+		"\u0004\u0001\t$\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
+		"\u0005\u0007\u0005\u0001\u0000\u0004\u0000\u000e\b\u0000\u000b\u0000\f"+
+		"\u0000\u000f\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0003\u0002"+
+		"\u0016\b\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0004\u0001\u0005"+
+		"\u0001\u0005\u0001\u0005\u0000\u0000\u0006\u0000\u0002\u0004\u0006\b\n"+
+		"\u0000\u0001\u0001\u0000\u0004\u0007\u001f\u0000\r\u0001\u0000\u0000\u0000"+
+		"\u0002\u0011\u0001\u0000\u0000\u0000\u0004\u0015\u0001\u0000\u0000\u0000"+
+		"\u0006\u0017\u0001\u0000\u0000\u0000\b\u001d\u0001\u0000\u0000\u0000\n"+
+		"!\u0001\u0000\u0000\u0000\f\u000e\u0003\u0002\u0001\u0000\r\f\u0001\u0000"+
+		"\u0000\u0000\u000e\u000f\u0001\u0000\u0000\u0000\u000f\r\u0001\u0000\u0000"+
+		"\u0000\u000f\u0010\u0001\u0000\u0000\u0000\u0010\u0001\u0001\u0000\u0000"+
+		"\u0000\u0011\u0012\u0003\u0004\u0002\u0000\u0012\u0003\u0001\u0000\u0000"+
+		"\u0000\u0013\u0016\u0003\u0006\u0003\u0000\u0014\u0016\u0003\b\u0004\u0000"+
+		"\u0015\u0013\u0001\u0000\u0000\u0000\u0015\u0014\u0001\u0000\u0000\u0000"+
+		"\u0016\u0005\u0001\u0000\u0000\u0000\u0017\u0018\u0005\u0001\u0000\u0000"+
+		"\u0018\u0019\u0005\b\u0000\u0000\u0019\u001a\u0005\u0002\u0000\u0000\u001a"+
+		"\u001b\u0005\u0003\u0000\u0000\u001b\u001c\u0003\n\u0005\u0000\u001c\u0007"+
+		"\u0001\u0000\u0000\u0000\u001d\u001e\u0005\u0001\u0000\u0000\u001e\u001f"+
+		"\u0005\u0003\u0000\u0000\u001f \u0003\n\u0005\u0000 \t\u0001\u0000\u0000"+
+		"\u0000!\"\u0007\u0000\u0000\u0000\"\u000b\u0001\u0000\u0000\u0000\u0002"+
+		"\u000f\u0015";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
