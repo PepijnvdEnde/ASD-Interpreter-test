@@ -1,6 +1,7 @@
 package org.example;
 
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.example.Listner.MyGrammarLexer;
 import org.example.Listner.MyGrammarParser;
@@ -16,7 +17,8 @@ public class Main {
 
         // Create a walker and a listener
         ParseTreeWalker walker = new ParseTreeWalker();
-        MyListener listener = new MyListener();
+        Speler speler = new Speler();
+        MyListener listener = new MyListener(speler);
 
 
         while (!(input = reader.readLine()).equals("stop")) {
@@ -34,7 +36,7 @@ public class Main {
             MyGrammarParser.ProgramContext programContext = parser.program();
 
             // Walk the parse tree with the listener
-            walker.walk(listener, programContext);
+            walker.walk(listener,  programContext);
         }
     }
 }

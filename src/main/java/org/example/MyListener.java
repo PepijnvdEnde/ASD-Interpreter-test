@@ -4,13 +4,19 @@ import org.example.Listner.MyGrammarBaseListener;
 import org.example.Listner.MyGrammarParser;
 
 class MyListener extends MyGrammarBaseListener {
+    Speler speler;
+    public MyListener(Speler speler) {
+        super();
+        this.speler = speler;
+    }
+
     @Override
     public void enterEnkelLoopStatement(MyGrammarParser.EnkelLoopStatementContext ctx) {
 
         String direction = ctx.direction().getText();
 
-        // Create a new Speler object and call the loop method
-        Speler speler = new Speler();
+        // Create a new speler object and call the loop method
+
         speler.loop(1, direction);
     }
 
@@ -19,8 +25,7 @@ class MyListener extends MyGrammarBaseListener {
         int aantal = Integer.parseInt(ctx.INT().getText());
         String direction = ctx.direction().getText();
 
-        // Create a new Speler object and call the loop method
-        Speler speler = new Speler();
+        // Create a new speler object and call the loop method
         speler.loop(aantal, direction);
     }
 
